@@ -1,4 +1,4 @@
-# Claude Theme Like
+# Obsidian Claude
 
 一款温暖、优雅的 Obsidian 主题。主题名 **Amber**，琥珀色调搭配衬线字体，带来在暖灯下翻书的沉浸阅读体验。
 
