@@ -1,0 +1,220 @@
+/*
+ * Claude-inspired Obsidian Theme
+ * By AI Studio
+ */
+
+/* Light Mode Variables */
+.theme-light {
+  /* Warm off-white backgrounds */
+  --background-primary: #FFFFFF;
+  --background-secondary: #F3F1EC;
+  --background-primary-alt: #FAFAF9;
+  
+  /* Top bar and status bar matching Claude's seamless ui */
+  --titlebar-background: var(--background-secondary);
+  --titlebar-background-focused: var(--background-secondary);
+  --status-bar-background: var(--background-secondary);
+  --workspace-background: var(--background-secondary);
+  
+  /* Text colors */
+  --text-normal: #333333;
+  --text-muted: #73716E;
+  --text-faint: #B0ADA8;
+  
+  /* Claude Accent (Peach/Amber) */
+  --text-accent: #D97757;
+  --text-accent-hover: #C26345;
+  --interactive-accent: #D97757;
+  --interactive-accent-hover: #C26345;
+  --interactive-accent-rgb: 217, 119, 87;
+
+  /* Borders */
+  --background-modifier-border: #E6E4DF;
+  --background-modifier-border-hover: #D8D4CF;
+  --background-modifier-border-focus: #D97757;
+  
+  /* Interactive States */
+  --background-modifier-hover: rgba(0, 0, 0, 0.05);
+  --background-modifier-active-hover: rgba(0, 0, 0, 0.08);
+
+  --nav-item-background-hover: var(--background-modifier-hover);
+  --nav-item-background-active: var(--background-modifier-active-hover);
+}
+
+/* Dark Mode Variables */
+.theme-dark {
+  /* Earthy dark grey backgrounds */
+  --background-primary: #1C1A19;
+  --background-secondary: #262423;
+  --background-primary-alt: #161514;
+  
+  /* Top bar and status bar */
+  --titlebar-background: var(--background-secondary);
+  --titlebar-background-focused: var(--background-secondary);
+  --status-bar-background: var(--background-secondary);
+  --workspace-background: var(--background-secondary);
+  
+  /* Text colors */
+  --text-normal: #EAE6DF;
+  --text-muted: #A19D98;
+  --text-faint: #6E6C6A;
+  
+  /* Highlight Accent */
+  --text-accent: #E18567;
+  --text-accent-hover: #EC9A7F;
+  --interactive-accent: #E18567;
+  --interactive-accent-hover: #EC9A7F;
+  --interactive-accent-rgb: 225, 133, 103;
+
+  /* Borders */
+  --background-modifier-border: #3A3735;
+  --background-modifier-border-hover: #4A4643;
+  --background-modifier-border-focus: #E18567;
+  
+  /* Interactive States */
+  --background-modifier-hover: rgba(255, 255, 255, 0.06);
+  --background-modifier-active-hover: rgba(255, 255, 255, 0.1);
+
+  --nav-item-background-hover: var(--background-modifier-hover);
+  --nav-item-background-active: var(--background-modifier-active-hover);
+}
+
+/* Base Typographic & Structural Overrides */
+body {
+  /* Typography Settings */
+  --font-text-theme: 'Newsreader', 'Georgia', 'Times New Roman', serif;
+  --font-ui-theme: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --font-interface: var(--font-ui-theme);
+  --font-text: var(--font-text-theme);
+  --font-monospace: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  
+  --h1-font: var(--font-text-theme);
+  --h2-font: var(--font-text-theme);
+  --h3-font: var(--font-text-theme);
+  --h4-font: var(--font-text-theme);
+  --h5-font: var(--font-text-theme);
+  --h6-font: var(--font-text-theme);
+  
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 16px;
+  
+  --h1-color: var(--text-normal);
+  --h2-color: var(--text-normal);
+  --h3-color: var(--text-normal);
+  
+  --bold-weight: 600;
+}
+
+/* ===========================
+ * ANIMATIONS & TRANSITIONS
+ * =========================== */
+
+/* Add smooth transitions to interactive elements */
+.nav-file-title,
+.nav-folder-title,
+.workspace-tab-header,
+.clickable-icon,
+button,
+a,
+.metadata-property {
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease, border-color 0.2s ease !important;
+}
+
+/* Micro-interactions */
+.clickable-icon:active,
+button:active {
+  transform: scale(0.95);
+}
+
+.workspace-tab-header-inner {
+  transition: all 0.2s ease;
+}
+
+.nav-file-title:hover,
+.nav-folder-title:hover {
+  transform: translateX(2px);
+}
+
+/* ===========================
+ * UI TWEAKS
+ * =========================== */
+
+.workspace-leaf-content {
+  border-radius: var(--radius-m);
+}
+
+.markdown-preview-view {
+  font-family: var(--font-text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.markdown-source-view.mod-cm6 .cm-scroller {
+  font-family: var(--font-text);
+  line-height: 1.7;
+}
+
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+}
+
+.markdown-rendered h1 { font-size: 2.2em; }
+.markdown-rendered h2 { font-size: 1.8em; }
+
+/* Elegant active states */
+.nav-file-title, .nav-folder-title {
+  border-radius: var(--radius-s);
+}
+
+.nav-file-title.is-active, .nav-folder-title.is-active {
+  background-color: var(--nav-item-background-active);
+  color: var(--text-accent);
+  font-weight: 500;
+}
+
+/* Links */
+.markdown-rendered a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(var(--interactive-accent-rgb), 0.4);
+}
+
+.markdown-rendered a:hover {
+  text-decoration-color: var(--interactive-accent);
+}
+
+/* Blockquotes */
+.markdown-rendered blockquote {
+  border-left: 3px solid var(--text-accent);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  background-color: var(--background-primary-alt);
+  padding: 16px 20px;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Code blocks */
+.markdown-rendered pre {
+  border-radius: var(--radius-m);
+  border: 1px solid var(--background-modifier-border);
+  background-color: var(--background-secondary);
+}
+
+.markdown-rendered code {
+  color: var(--text-accent);
+  background-color: var(--background-modifier-hover);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
